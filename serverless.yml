@@ -7,9 +7,19 @@ provider:
 
 functions:
   api:
+    image:
+      name: mockoon-serverless
     handler: handler.handler
     events:
-      - httpApi: '*'
+      # - httpApi: '*'
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
 
 plugins:
   - serverless-offline

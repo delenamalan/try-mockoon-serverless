@@ -1,8 +1,10 @@
 {
   "name": "mockoon-data",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@mockoon/serverless": "^0.1.0",
     "express": "^4.17.1",
     "serverless-http": "^2.7.0"
   },

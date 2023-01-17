@@ -1,23 +1,9 @@
-const serverless = require("serverless-http");
-const express = require("express");
-const app = express();
+import { MockoonServerless } from '@mockoon/serverless';
+import data from './data.json' assert { type: "json" };
 
-app.get("/", (req, res, next) => {
-  return res.status(200).json({
-    message: "Hello from root!",
-  });
-});
+// Load the Mockoon Environment object
+const mockEnv = data;
 
-app.get("/hello", (req, res, next) => {
-  return res.status(200).json({
-    message: "Hello from path!",
-  });
-});
+const mockoonServerless = new MockoonServerless(mockEnv);
 
-app.use((req, res, next) => {
-  return res.status(404).json({
-    error: "Not Found",
-  });
-});
-
-module.exports.handler = serverless(app);
+export const handler = mockoonServerless.awsHandler();
