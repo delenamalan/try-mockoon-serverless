@@ -35,7 +35,7 @@
       "responseMode": null
     }
   ],
-  "proxyMode": false,
+  "proxyMode": true,
   "proxyHost": "https://httpbin.org",
   "proxyRemovePrefix": false,
   "tlsOptions": {
