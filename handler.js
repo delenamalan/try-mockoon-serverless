@@ -1,9 +1,8 @@
-import { MockoonServerless } from '@mockoon/serverless';
-import data from './data.json' assert { type: "json" };
+const mockoon = require("@mockoon/serverless");
 
 // Load the Mockoon Environment object
-const mockEnv = data;
+const mockEnv = require('./data.json');
 
-const mockoonServerless = new MockoonServerless(mockEnv);
+const mockoonServerless = new mockoon.MockoonServerless(mockEnv);
 
-export const handler = mockoonServerless.awsHandler();
+module.exports.handler = mockoonServerless.awsHandler();
