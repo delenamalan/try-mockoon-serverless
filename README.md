@@ -25,12 +25,25 @@ Deploying aws-node-express-api-project to stage dev (us-east-1)
 
 ✔ Service deployed to stack aws-node-express-api-project-dev (196s)
 
-endpoint: ANY - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com
+endpoint: ANY - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev
 functions:
   api: aws-node-express-api-project-dev-api (766 kB)
 ```
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [`httpApi` event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/).
+You should then be able to call the API like this:
+
+```
+curl https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/hello
+{"hello": true}
+
+curl https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/get\?hello\=true
+{
+  "args": {
+	    "hello": "true"
+			  },
+	 ...
+}
+```
 
 ### Local development
 
